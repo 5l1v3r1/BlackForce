@@ -8,12 +8,19 @@ echo "\e[1;31m
 |  _ <| |/ _` |/ __| |/ /  __/ _ \| '__/ __/ _ \
 | |_) | | (_| | (__|   <| | | (_) | | | (_|  __/
 |____/|_|\__,_|\___|_|\_\_|  \___/|_|  \___\___|
-                                                v0.1
+                                                v0.5
 -----------------------------------------------------\e[0m
 ";
 
 $striped = null;
-if ($argc != 5 || in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
+if (isset($argv[1]) && in_array($argv[1], ["-v", "--about"])){
+	   echo "name: BlackForce\n";
+	   echo "version 0.5\n";
+	   echo "devloped by: Black.Hacker\n";
+	   echo "email: farisksa79@protonmail.com\n";
+	   echo "twitter: @BlackHacker_511\n";
+ 
+} elseif ($argc != 5 || in_array($argv[1], array('--help', '-help', '-h', '-?'))) {
     echo "Usage:\n";
     echo basename($argv[0]) . " -hf <hashfile> -w <passwordlist>\n";
     echo "Example:\n";

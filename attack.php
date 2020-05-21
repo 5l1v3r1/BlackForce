@@ -65,17 +65,17 @@ if (isset($argv[1]) && in_array($argv[1], ["-v", "--about"])) {
                                 $found[] = [$hash => $password];
                                 break;
                             } else {
-								echo "Check Password: " . trim($password) . "\n";
-                                
-                                if($i == $lines){
-									echo "\e[1;31m";
-									echo "-------------------------------\n";
-									echo "Password not found ):\n";
-									echo "-------------------------------\n";
-									echo "\e[0m";
-									$i=1;
-									break;									
-								}
+                                echo "Check Password: " . trim($password) . "\n";
+
+                                if ($i == $lines) {
+                                    echo "\e[1;31m";
+                                    echo "-------------------------------\n";
+                                    echo "Password not found ):\n";
+                                    echo "-------------------------------\n";
+                                    echo "\e[0m";
+                                    $i = 1;
+                                    break;
+                                }
                             }
                             $i++;
                         }
@@ -85,29 +85,29 @@ if (isset($argv[1]) && in_array($argv[1], ["-v", "--about"])) {
             }
         }
         fclose($file);
-        
-        if(!empty($found)){
-			
-			echo "Do you want to export result (Y/N): ";
-			$option = readline("");
-			if ($option == "Y" or $option == "y") {
-				$filename = "result - " . date("Y-m-d h_m_s") . ".txt";
-				$myfile = fopen($filename, "w+");
-				fwrite($myfile, "[ BlackForce Result ]\n");
-				fwrite($myfile, "------------------------\n");
-				foreach ($found as $fph) {
-					foreach ($fph as $hash => $password) {
-						fwrite($myfile, $hash . ":" . $password);
-					}
-				}
-				fwrite($myfile, "------------------------\n");
-				fclose($myfile);
-			} else {
-				exit();
-			}
-			
-		}
-        
+
+        if (!empty($found)) {
+
+            echo "Do you want to export result (Y/N): ";
+            $option = readline("");
+            if ($option == "Y" or $option == "y") {
+                $filename = "result - " . date("Y-m-d h_m_s") . ".txt";
+                $myfile = fopen($filename, "w+");
+                fwrite($myfile, "[ BlackForce Result ]\n");
+                fwrite($myfile, "------------------------\n");
+                foreach ($found as $fph) {
+                    foreach ($fph as $hash => $password) {
+                        fwrite($myfile, $hash . ":" . $password);
+                    }
+                }
+                fwrite($myfile, "------------------------\n");
+                fclose($myfile);
+            } else {
+                exit();
+            }
+
+        }
+
     } catch (Exception $err) {
         echo $err->getMessage();
     }

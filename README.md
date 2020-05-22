@@ -24,6 +24,10 @@ cd BlackForce
 ./attack.php --help
 ```
 
+## Live Tutorial
+
+[![asciicast](https://asciinema.org/a/dHFCpWsqolrX525CHOjK13xIv.svg)](https://asciinema.org/a/dHFCpWsqolrX525CHOjK13xIv)
+
 ## Tested On
 + Linux [ 🐧 ]
 + Windows 10

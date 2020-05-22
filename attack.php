@@ -63,6 +63,7 @@ if (isset($argv[1]) && in_array($argv[1], ["-v", "--about"])) {
                                 echo "-------------------------------\n";
                                 echo "\e[0m";
                                 $found[] = [$hash => $password];
+                                $i = 1;
                                 break;
                             } else {
                                 echo "Check Password: " . trim($password) . "\n";
